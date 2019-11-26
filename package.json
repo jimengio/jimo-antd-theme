@@ -10,6 +10,7 @@
     "example:deploy": "yarn example:build && gh-pages -d dist",
     "build": "rm -rf ./lib/ && tsc -d --project tsconfig.json --outDir ./lib/ && yarn gen-less",
     "gen-less": "node ./utils/gen-less.js",
+    "gen-type": "node ./utils/gen-type.js",
     "prepare": "yarn build"
   },
   "keywords": [
