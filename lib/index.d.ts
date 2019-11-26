@@ -1,2 +1,2 @@
-import platform from "./platform";
+import platform from "./theme/platform";
 export { platform };

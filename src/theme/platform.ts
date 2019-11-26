@@ -1,10 +1,10 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * platform
  *
  * antd variables: https://github.com/ant-design/ant-design/blob/master/components/style/themes/default.less
  */
-exports.default = {
-    "@border-radius-base": "0",
+const platform = {
+  "@border-radius-base": "0",
 };
+
+export default platform;
