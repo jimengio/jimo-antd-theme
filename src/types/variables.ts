@@ -1,6 +1,9 @@
 export default interface AntdThemeVariables {
+  // The prefix to use on all css classes from ant.
   "@ant-prefix"?: string;
+  // An override for the html selector for theme prefixes
   "@html-selector"?: string;
+  // -------- Colors -----------
   "@primary-color"?: string;
   "@info-color"?: string;
   "@success-color"?: string;
@@ -11,17 +14,23 @@ export default interface AntdThemeVariables {
   "@normal-color"?: string;
   "@white"?: string;
   "@black"?: string;
-  "@primary-1"?: string;
-  "@primary-2"?: string;
-  "@primary-3"?: string;
-  "@primary-4"?: string;
+  // Color used by default to control hover and active backgrounds and for
+  // alert info backgrounds.
+  "@primary-1"?: string;  // replace tint(@primary-color, 90%)
+  "@primary-2"?: string;  // replace tint(@primary-color, 80%)
+  "@primary-3"?: string;  // unused
+  "@primary-4"?: string;  // unused
   "@primary-5"?: string;
-  "@primary-6"?: string;
-  "@primary-7"?: string;
-  "@primary-8"?: string;
-  "@primary-9"?: string;
-  "@primary-10"?: string;
+  "@primary-6"?: string;  // color used to control the text color of active buttons, don't use, use @primary-color
+  "@primary-7"?: string;  // replace shade(@primary-color, 5%)
+  "@primary-8"?: string;  // unused
+  "@primary-9"?: string;  // unused
+  "@primary-10"?: string;  // unused
+  // Base Scaffolding Variables
+  // ---
+  // Background color for `<body>`
   "@body-background"?: string;
+  // Base background color for most components
   "@component-background"?: string;
   "@font-family"?: string;
   "@code-family"?: string;
@@ -40,23 +49,34 @@ export default interface AntdThemeVariables {
   "@font-size-base"?: string;
   "@font-size-lg"?: string;
   "@font-size-sm"?: string;
+  "@heading-1-size"?: string;
+  "@heading-2-size"?: string;
+  "@heading-3-size"?: string;
+  "@heading-4-size"?: string;
   "@line-height-base"?: string;
   "@border-radius-base"?: string;
   "@border-radius-sm"?: string;
-  "@padding-lg"?: string;
-  "@padding-md"?: string;
-  "@padding-sm"?: string;
-  "@padding-xs"?: string;
+  // vertical paddings
+  "@padding-lg"?: string;  // containers
+  "@padding-md"?: string;  // small containers and buttons
+  "@padding-sm"?: string;  // Form controls and items
+  "@padding-xs"?: string;  // small items
+  // vertical padding for all form controls
   "@control-padding-horizontal"?: string;
   "@control-padding-horizontal-sm"?: string;
+  // The background colors for active and hover states for things like
+  // list items or table cells.
   "@item-active-bg"?: string;
   "@item-hover-bg"?: string;
+  // ICONFONT
   "@iconfont-css-prefix"?: string;
+  // LINK
   "@link-color"?: string;
   "@link-hover-color"?: string;
   "@link-active-color"?: string;
   "@link-decoration"?: string;
   "@link-hover-decoration"?: string;
+  // Animation
   "@ease-base-out"?: string;
   "@ease-base-in"?: string;
   "@ease-out"?: string;
@@ -71,23 +91,32 @@ export default interface AntdThemeVariables {
   "@ease-out-quint"?: string;
   "@ease-in-quint"?: string;
   "@ease-in-out-quint"?: string;
-  "@border-color-base"?: string;
-  "@border-color-split"?: string;
+  // Border color
+  "@border-color-base"?: string;  // base border outline a component
+  "@border-color-split"?: string;  // split border inside a component
   "@border-color-inverse"?: string;
-  "@border-width-base"?: string;
-  "@border-style-base"?: string;
+  "@border-width-base"?: string;  // width of the border for a component
+  "@border-style-base"?: string;  // style of a components border
+  // Outline
   "@outline-blur-size"?: string;
   "@outline-width"?: string;
   "@outline-color"?: string;
-  "@background-color-light"?: string;
-  "@background-color-base"?: string;
+  "@background-color-light"?: string;  // background of header and selected item
+  "@background-color-base"?: string;  // Default grey background color
+  // Disabled states
   "@disabled-color"?: string;
   "@disabled-bg"?: string;
   "@disabled-color-dark"?: string;
+  // Shadow
   "@shadow-color"?: string;
   "@shadow-color-inverse"?: string;
   "@box-shadow-base"?: string;
+  "@shadow-1-up"?: string;
+  "@shadow-1-down"?: string;
+  "@shadow-1-left"?: string;
+  "@shadow-1-right"?: string;
   "@shadow-2"?: string;
+  // Buttons
   "@btn-font-weight"?: string;
   "@btn-border-radius-base"?: string;
   "@btn-border-radius-sm"?: string;
@@ -122,39 +151,55 @@ export default interface AntdThemeVariables {
   "@btn-square-size-lg"?: string;
   "@btn-square-size-sm"?: string;
   "@btn-group-border"?: string;
+  // Checkbox
   "@checkbox-size"?: string;
   "@checkbox-color"?: string;
   "@checkbox-check-color"?: string;
   "@checkbox-border-width"?: string;
+  // Descriptions
   "@descriptions-bg"?: string;
+  // Dropdown
   "@dropdown-selected-color"?: string;
+  // Empty
   "@empty-font-size"?: string;
+  // Radio
   "@radio-size"?: string;
   "@radio-dot-color"?: string;
+  // Radio buttons
   "@radio-button-bg"?: string;
   "@radio-button-checked-bg"?: string;
   "@radio-button-color"?: string;
   "@radio-button-hover-color"?: string;
   "@radio-button-active-color"?: string;
+  // Media queries breakpoints
+  // Extra small screen / phone
   "@screen-xs"?: string;
   "@screen-xs-min"?: string;
+  // Small screen / tablet
   "@screen-sm"?: string;
   "@screen-sm-min"?: string;
+  // Medium screen / desktop
   "@screen-md"?: string;
   "@screen-md-min"?: string;
+  // Large screen / wide desktop
   "@screen-lg"?: string;
   "@screen-lg-min"?: string;
+  // Extra large screen / full hd
   "@screen-xl"?: string;
   "@screen-xl-min"?: string;
+  // Extra extra large screen / large desktop
   "@screen-xxl"?: string;
   "@screen-xxl-min"?: string;
+  // provide a maximum
   "@screen-xs-max"?: string;
   "@screen-sm-max"?: string;
   "@screen-md-max"?: string;
   "@screen-lg-max"?: string;
   "@screen-xl-max"?: string;
+  // Grid system
   "@grid-columns"?: string;
   "@grid-gutter-width"?: string;
+  // Layout
   "@layout-body-background"?: string;
   "@layout-header-background"?: string;
   "@layout-footer-background"?: string;
@@ -167,9 +212,11 @@ export default interface AntdThemeVariables {
   "@layout-trigger-color"?: string;
   "@layout-zero-trigger-width"?: string;
   "@layout-zero-trigger-height"?: string;
+  // Layout light theme
   "@layout-sider-background-light"?: string;
   "@layout-trigger-background-light"?: string;
   "@layout-trigger-color-light"?: string;
+  // z-index list, order by `z-index`
   "@zindex-table-fixed"?: string;
   "@zindex-affix"?: string;
   "@zindex-back-top"?: string;
@@ -184,13 +231,18 @@ export default interface AntdThemeVariables {
   "@zindex-dropdown"?: string;
   "@zindex-picker"?: string;
   "@zindex-tooltip"?: string;
-  "@animation-duration-slow"?: string;
+  // Animation
+  "@animation-duration-slow"?: string;  // Modal
   "@animation-duration-base"?: string;
-  "@animation-duration-fast"?: string;
+  "@animation-duration-fast"?: string;  // Tooltip
+  //CollapsePanel
   "@collapse-panel-border-radius"?: string;
+  //Dropdown
   "@dropdown-vertical-padding"?: string;
   "@dropdown-font-size"?: string;
   "@dropdown-line-height"?: string;
+  // Form
+  // ---
   "@label-required-color"?: string;
   "@label-color"?: string;
   "@form-warning-input-bg"?: string;
@@ -201,6 +253,8 @@ export default interface AntdThemeVariables {
   "@form-item-label-colon-margin-right"?: string;
   "@form-item-label-colon-margin-left"?: string;
   "@form-error-input-bg"?: string;
+  // Input
+  // ---
   "@input-height-base"?: string;
   "@input-height-lg"?: string;
   "@input-height-sm"?: string;
@@ -224,36 +278,64 @@ export default interface AntdThemeVariables {
   "@input-hover-border-color"?: string;
   "@input-disabled-bg"?: string;
   "@input-outline-offset"?: string;
+  // Select
+  // ---
   "@select-border-color"?: string;
   "@select-item-selected-font-weight"?: string;
   "@select-dropdown-bg"?: string;
   "@select-item-selected-bg"?: string;
   "@select-item-active-bg"?: string;
   "@select-background"?: string;
+  // Anchor
+  // ---
   "@anchor-border-color"?: string;
+  // Tooltip
+  // ---
+  // Tooltip max width
   "@tooltip-max-width"?: string;
+  // Tooltip text color
   "@tooltip-color"?: string;
+  // Tooltip background color
   "@tooltip-bg"?: string;
+  // Tooltip arrow width
   "@tooltip-arrow-width"?: string;
+  // Tooltip distance with trigger
   "@tooltip-distance"?: string;
+  // Tooltip arrow color
   "@tooltip-arrow-color"?: string;
+  // Popover
+  // ---
+  // Popover body background color
   "@popover-bg"?: string;
+  // Popover text color
   "@popover-color"?: string;
+  // Popover maximum width
   "@popover-min-width"?: string;
+  // Popover arrow width
   "@popover-arrow-width"?: string;
+  // Popover arrow color
   "@popover-arrow-color"?: string;
+  // Popover outer arrow width
+  // Popover outer arrow color
   "@popover-arrow-outer-color"?: string;
+  // Popover distance with trigger
   "@popover-distance"?: string;
+  // Modal
+  // --
   "@modal-body-padding"?: string;
   "@modal-header-bg"?: string;
   "@modal-heading-color"?: string;
   "@modal-footer-bg"?: string;
   "@modal-footer-border-color-split"?: string;
   "@modal-mask-bg"?: string;
+  // Progress
+  // --
   "@progress-default-color"?: string;
   "@progress-remaining-color"?: string;
   "@progress-text-color"?: string;
   "@progress-radius"?: string;
+  // Menu
+  // ---
   "@menu-inline-toplevel-item-height"?: string;
   "@menu-item-height"?: string;
   "@menu-collapsed-width"?: string;
@@ -269,6 +351,7 @@ export default interface AntdThemeVariables {
   "@menu-item-vertical-margin"?: string;
   "@menu-item-font-size"?: string;
   "@menu-item-boundary-margin"?: string;
+  // dark theme
   "@menu-dark-color"?: string;
   "@menu-dark-bg"?: string;
   "@menu-dark-arrow-color"?: string;
@@ -278,9 +361,13 @@ export default interface AntdThemeVariables {
   "@menu-dark-selected-item-icon-color"?: string;
   "@menu-dark-selected-item-text-color"?: string;
   "@menu-dark-item-hover-bg"?: string;
+  // Spin
+  // ---
   "@spin-dot-size-sm"?: string;
   "@spin-dot-size"?: string;
   "@spin-dot-size-lg"?: string;
+  // Table
+  // --
   "@table-header-bg"?: string;
   "@table-header-color"?: string;
   "@table-header-sort-bg"?: string;
@@ -296,23 +383,35 @@ export default interface AntdThemeVariables {
   "@table-border-radius-base"?: string;
   "@table-footer-bg"?: string;
   "@table-footer-color"?: string;
+  // Tag
+  // --
   "@tag-default-bg"?: string;
   "@tag-default-color"?: string;
   "@tag-font-size"?: string;
+  // TimePicker
+  // ---
   "@time-picker-panel-column-width"?: string;
   "@time-picker-panel-width"?: string;
   "@time-picker-selected-bg"?: string;
+  // Carousel
+  // ---
   "@carousel-dot-width"?: string;
   "@carousel-dot-height"?: string;
   "@carousel-dot-active-width"?: string;
+  // Badge
+  // ---
   "@badge-height"?: string;
   "@badge-dot-size"?: string;
   "@badge-font-size"?: string;
   "@badge-font-weight"?: string;
   "@badge-status-size"?: string;
   "@badge-text-color"?: string;
+  // Rate
+  // ---
   "@rate-star-color"?: string;
   "@rate-star-bg"?: string;
+  // Card
+  // ---
   "@card-head-color"?: string;
   "@card-head-background"?: string;
   "@card-head-padding"?: string;
@@ -323,6 +422,8 @@ export default interface AntdThemeVariables {
   "@card-background"?: string;
   "@card-shadow"?: string;
   "@card-radius"?: string;
+  // Comment
+  // ---
   "@comment-padding-base"?: string;
   "@comment-nest-indent"?: string;
   "@comment-font-size-base"?: string;
@@ -331,6 +432,8 @@ export default interface AntdThemeVariables {
   "@comment-author-time-color"?: string;
   "@comment-action-color"?: string;
   "@comment-action-hover-color"?: string;
+  // Tabs
+  // ---
   "@tabs-card-head-background"?: string;
   "@tabs-card-height"?: string;
   "@tabs-card-active-color"?: string;
@@ -351,9 +454,13 @@ export default interface AntdThemeVariables {
   "@tabs-active-color"?: string;
   "@tabs-card-gutter"?: string;
   "@tabs-card-tab-active-border-top"?: string;
+  // BackTop
+  // ---
   "@back-top-color"?: string;
   "@back-top-bg"?: string;
   "@back-top-hover-bg"?: string;
+  // Avatar
+  // ---
   "@avatar-size-base"?: string;
   "@avatar-size-lg"?: string;
   "@avatar-size-sm"?: string;
@@ -363,21 +470,29 @@ export default interface AntdThemeVariables {
   "@avatar-bg"?: string;
   "@avatar-color"?: string;
   "@avatar-border-radius"?: string;
+  // Switch
+  // ---
   "@switch-height"?: string;
   "@switch-sm-height"?: string;
   "@switch-sm-checked-margin-left"?: string;
   "@switch-disabled-opacity"?: string;
   "@switch-color"?: string;
   "@switch-shadow-color"?: string;
+  // Pagination
+  // ---
   "@pagination-item-size"?: string;
   "@pagination-item-size-sm"?: string;
   "@pagination-font-family"?: string;
   "@pagination-font-weight-active"?: string;
   "@pagination-item-bg-active"?: string;
+  // PageHeader
+  // ---
   "@page-header-padding"?: string;
   "@page-header-padding-vertical"?: string;
   "@page-header-padding-breadcrumb"?: string;
   "@page-header-back-color"?: string;
+  // Breadcrumb
+  // ---
   "@breadcrumb-base-color"?: string;
   "@breadcrumb-last-item-color"?: string;
   "@breadcrumb-font-size"?: string;
@@ -386,6 +501,8 @@ export default interface AntdThemeVariables {
   "@breadcrumb-link-color-hover"?: string;
   "@breadcrumb-separator-color"?: string;
   "@breadcrumb-separator-margin"?: string;
+  // Slider
+  // ---
   "@slider-margin"?: string;
   "@slider-rail-background-color"?: string;
   "@slider-rail-background-color-hover"?: string;
@@ -403,23 +520,37 @@ export default interface AntdThemeVariables {
   "@slider-dot-border-color-active"?: string;
   "@slider-disabled-color"?: string;
   "@slider-disabled-background-color"?: string;
+  // Tree
+  // ---
   "@tree-title-height"?: string;
   "@tree-child-padding"?: string;
   "@tree-directory-selected-color"?: string;
   "@tree-directory-selected-bg"?: string;
   "@tree-node-hover-bg"?: string;
   "@tree-node-selected-bg"?: string;
+  // Collapse
+  // ---
   "@collapse-header-padding"?: string;
   "@collapse-header-padding-extra"?: string;
   "@collapse-header-bg"?: string;
   "@collapse-content-padding"?: string;
   "@collapse-content-bg"?: string;
+  // Skeleton
+  // ---
   "@skeleton-color"?: string;
+  // Transfer
+  // ---
   "@transfer-header-height"?: string;
   "@transfer-disabled-bg"?: string;
   "@transfer-list-height"?: string;
+  // Message
+  // ---
   "@message-notice-content-padding"?: string;
+  // Motion
+  // ---
   "@wave-animation-width"?: string;
+  // Alert
+  // ---
   "@alert-success-border-color"?: string;
   "@alert-success-bg-color"?: string;
   "@alert-success-icon-color"?: string;
@@ -432,6 +563,8 @@ export default interface AntdThemeVariables {
   "@alert-error-border-color"?: string;
   "@alert-error-bg-color"?: string;
   "@alert-error-icon-color"?: string;
+  // List
+  // ---
   "@list-header-background"?: string;
   "@list-footer-background"?: string;
   "@list-empty-text-padding"?: string;
@@ -439,17 +572,25 @@ export default interface AntdThemeVariables {
   "@list-item-meta-margin-bottom"?: string;
   "@list-item-meta-avatar-margin-right"?: string;
   "@list-item-meta-title-margin-bottom"?: string;
+  // Statistic
+  // ---
   "@statistic-title-font-size"?: string;
   "@statistic-content-font-size"?: string;
   "@statistic-unit-font-size"?: string;
   "@statistic-font-family"?: string;
+  // Drawer
+  // ---
   "@drawer-header-padding"?: string;
   "@drawer-body-padding"?: string;
+  // Timeline
+  // ---
   "@timeline-width"?: string;
   "@timeline-color"?: string;
   "@timeline-dot-border-width"?: string;
   "@timeline-dot-color"?: string;
   "@timeline-dot-bg"?: string;
+  // Typography
+  // ---
   "@typography-title-font-weight"?: string;
   "@typography-title-margin-top"?: string;
   "@typography-title-margin-bottom"?: string;

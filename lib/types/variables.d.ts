@@ -40,6 +40,10 @@ export default interface AntdThemeVariables {
     "@font-size-base"?: string;
     "@font-size-lg"?: string;
     "@font-size-sm"?: string;
+    "@heading-1-size"?: string;
+    "@heading-2-size"?: string;
+    "@heading-3-size"?: string;
+    "@heading-4-size"?: string;
     "@line-height-base"?: string;
     "@border-radius-base"?: string;
     "@border-radius-sm"?: string;
@@ -87,6 +91,10 @@ export default interface AntdThemeVariables {
     "@shadow-color"?: string;
     "@shadow-color-inverse"?: string;
     "@box-shadow-base"?: string;
+    "@shadow-1-up"?: string;
+    "@shadow-1-down"?: string;
+    "@shadow-1-left"?: string;
+    "@shadow-1-right"?: string;
     "@shadow-2"?: string;
     "@btn-font-weight"?: string;
     "@btn-border-radius-base"?: string;
