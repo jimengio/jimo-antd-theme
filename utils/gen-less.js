@@ -15,7 +15,7 @@ module.exports = function GenerateLessFile() {
   const files = fs.readdirSync(themePath);
 
   if (!files) {
-    throw new Error(`No files in '${filename}'.`);
+    throw new Error(`No files in '${themePath}'.`);
   }
 
   files.filter(isJsFile).map(filename => {
