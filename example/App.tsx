@@ -4,10 +4,10 @@ import { css } from "emotion";
 import { Radio } from "antd";
 import AntdComponents from "./components";
 
-import platform from "./theme/platform";
+import { JiMoTheme, getThemeCssText } from "./theme";
 
 export default function App() {
-  const [theme, setTheme] = useState("default");
+  const [theme, setTheme] = useState<JiMoTheme>(JiMoTheme.Default);
 
   const styleRef = useRef<HTMLStyleElement | null>();
 
@@ -18,23 +18,32 @@ export default function App() {
 
     if (!styleRef.current) {
       styleRef.current = document.createElement("style");
+      document.head.appendChild(styleRef.current);
     }
-
+    
     styleRef.current.setAttribute("jimo-antd-theme", "");
-    styleRef.current.innerText = theme === "platform" ? platform : "";
-    document.head.appendChild(styleRef.current);
+    styleRef.current.textContent = getThemeCssText(theme);
   }, [theme]);
 
   return (
     <div className={styleApp}>
+      <h1>Jimo Antd Theme</h1>
       <Radio.Group
         buttonStyle="solid"
         value={theme}
         onChange={e => setTheme(e.target.value)}
       >
-        <Radio.Button value="default">Antd Default</Radio.Button>
-        <Radio.Button value="platform">Platform</Radio.Button>
+        {(Object.keys(JiMoTheme) as (keyof typeof JiMoTheme)[]).map(k => {
+          const value = JiMoTheme[k];
+
+          return (
+            <Radio.Button key={k} value={value}>
+              {k}
+            </Radio.Button>
+          );
+        })}
       </Radio.Group>
+      <hr />
       <div style={{ marginTop: 16 }}>
         <AntdComponents />
       </div>

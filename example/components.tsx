@@ -17,6 +17,7 @@ import {
   Table,
   Alert,
   Progress,
+  Pagination,
   Row,
   Col,
 } from "antd";
@@ -116,6 +117,7 @@ const AntdComponents: FC = () => {
             </Select.Option>
           </Select>
           <br />
+          <br />
           <Select defaultValue="lucy" mode={"multiple"} style={{ width: 320 }}>
             <Select.Option value="jack">Jack</Select.Option>
             <Select.Option value="lucy">Lucy</Select.Option>
@@ -195,6 +197,11 @@ const AntdComponents: FC = () => {
             <Table.Column title="Address" dataIndex="address" key="address" />
           </Table>
         </PreCard>
+        <PreCard title={"Pagination"}>
+          <Pagination size="small" total={500} showSizeChanger showQuickJumper />
+          <br />
+          <Pagination showSizeChanger defaultCurrent={3} total={500} />
+        </PreCard>
       </Col>
     </Row>
   );
@@ -209,13 +216,13 @@ const styleCard = css`
   .ant-calendar-picker,
   .ant-input,
   .ant-switch,
-  .ant-select,
   .ant-radio-group {
     margin-right: 8px;
     margin-bottom: 8px;
   }
 
-  .ant-alert {
+  .ant-alert,
+  .ant-pagination {
     margin-bottom: 8px;
   }
 
