@@ -8,18 +8,14 @@ const Readable = require("stream").Readable;
 
 const antdThemePath =
   "https://raw.githubusercontent.com/ant-design/ant-design/master/components/style/themes/default.less";
-const antdDefaultThemeFilename = "antd.default.less";
 const variablesFilename = "variables.ts";
-const staticPath = path.join(__dirname, "../static");
-const antdDefaultThemeFilePath = path.join(
-  staticPath,
-  antdDefaultThemeFilename
-);
 const typesPath = path.join(__dirname, "../src/types");
 const variablesFilePath = path.join(typesPath, variablesFilename);
 const typeName = "AntdThemeVariables";
 
-const lessVariableReg = /^@(\w+\-?\w+)+\:/;
+const lessVariableReg = /^@\w+(\w*\-?\w*)+\w+\:/;
+const lineCommentReg = /^\/\//;
+const inLineCommentReg = /\/\/.+/;
 
 const getUrlCtx = url =>
   new Promise((resolve, reject) =>
@@ -39,16 +35,10 @@ const getUrlCtx = url =>
   );
 
 /**
- * Sync antd theme `default.less`
- * and
  * Generate variables type
  */
 module.exports = async function GenerateAntdThemeVariablesType() {
   const content = await getUrlCtx(antdThemePath);
-  fs.writeFileSync(antdDefaultThemeFilePath, content);
-  console.info(
-    `Sync antd default theme(less).\nGenerated ${antdDefaultThemeFilePath}.`
-  );
 
   writeTypeFile(content);
 };
@@ -67,8 +57,12 @@ function writeTypeFile(content) {
 
   rl.on("line", line => {
     if (isLessVariables(line)) {
-      typesText += `  "${getStyleName(line)}"?: string;\n`;
+      const comment = getInLineComment(line);
+      const suffix = comment ? `  ${comment}` : "";
+      typesText += `  "${getStyleName(line)}"?: string;${suffix}\n`;
       typesTot++;
+    } else if (isLineComment(line)) {
+      typesText += `  ${line}\n`;
     }
   });
 
@@ -82,6 +76,18 @@ function writeTypeFile(content) {
 
 function isLessVariables(str) {
   return lessVariableReg.test(str);
+}
+
+function isLineComment(str) {
+  return lineCommentReg.test(str);
+}
+
+function getInLineComment(str) {
+  if (inLineCommentReg.test(str)) {
+    return str.match(inLineCommentReg)[0];
+  } else {
+    return null;
+  }
 }
 
 function getStyleName(strLine) {
