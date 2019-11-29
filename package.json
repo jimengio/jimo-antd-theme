@@ -7,13 +7,17 @@
   "scripts": {
     "example": "yarn gen-css && parcel ./example/index.html",
     "example:build": "yarn gen-css && rm -rf ./dist/ && parcel build ./example/index.html --out-dir dist --public-url ./",
-    "example:deploy": "yarn example:build && gh-pages -d dist",
+    "example:deploy": "yarn example:build --no-source-maps && gh-pages -d dist",
     "example:less": "cd example && lessc --js ./index.less ./index.css",
     "build": "rm -rf ./lib/ && tsc -d --project tsconfig.json --outDir ./lib/ && yarn gen-less",
     "gen-less": "node ./utils/gen-less.js",
     "gen-type": "node ./utils/gen-type.js",
     "gen-css": "node ./utils/gen-css.js",
     "prepare": "yarn build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jimengio/jimo-antd-theme.git"
   },
   "keywords": [
     "antd-theme",
