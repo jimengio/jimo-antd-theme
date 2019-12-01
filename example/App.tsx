@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
 import { css } from "emotion";
 
-import { Radio } from "antd";
+import { Radio, Divider } from "antd";
 import AntdComponents from "./components";
+import Variables from "./Variables";
 
 import { JiMoTheme, getThemeCssText } from "./theme";
 
@@ -20,7 +21,7 @@ export default function App() {
       styleRef.current = document.createElement("style");
       document.head.appendChild(styleRef.current);
     }
-    
+
     styleRef.current.setAttribute("jimo-antd-theme", "");
     styleRef.current.textContent = getThemeCssText(theme);
   }, [theme]);
@@ -43,10 +44,11 @@ export default function App() {
           );
         })}
       </Radio.Group>
-      <hr />
+      <Divider orientation="left">Preview</Divider>
       <div style={{ marginTop: 16 }}>
         <AntdComponents />
       </div>
+      <Variables theme={theme} />
     </div>
   );
 }

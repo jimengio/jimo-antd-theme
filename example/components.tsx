@@ -166,6 +166,18 @@ const AntdComponents: FC = () => {
               Content of Tab Pane 3
             </Tabs.TabPane>
           </Tabs>
+          <br />
+          <Tabs defaultActiveKey="1" type="card">
+            <Tabs.TabPane tab="Tab 1" key="1">
+              Content of Tab Pane 1
+            </Tabs.TabPane>
+            <Tabs.TabPane tab="Tab 2" key="2">
+              Content of Tab Pane 2
+            </Tabs.TabPane>
+            <Tabs.TabPane tab="Tab 3" key="3">
+              Content of Tab Pane 3
+            </Tabs.TabPane>
+          </Tabs>
         </PreCard>
       </Col>
       <Col lg={24}>
@@ -198,7 +210,12 @@ const AntdComponents: FC = () => {
           </Table>
         </PreCard>
         <PreCard title={"Pagination"}>
-          <Pagination size="small" total={500} showSizeChanger showQuickJumper />
+          <Pagination
+            size="small"
+            total={500}
+            showSizeChanger
+            showQuickJumper
+          />
           <br />
           <Pagination showSizeChanger defaultCurrent={3} total={500} />
         </PreCard>

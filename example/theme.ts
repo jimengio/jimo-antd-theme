@@ -1,4 +1,6 @@
-import platform from "./theme/platform";
+import platformCss from "./theme/platform";
+
+import { platform } from "../lib";
 
 export enum JiMoTheme {
   Default = "default",
@@ -12,9 +14,23 @@ export enum JiMoTheme {
 export function getThemeCssText(theme: JiMoTheme): string {
   switch (theme) {
     case JiMoTheme.Platform:
-      return platform;
+      return platformCss;
     case JiMoTheme.Default:
     default:
       return "";
+  }
+}
+
+/**
+ * Get Less variables obj
+ * @param theme
+ */
+export function getThemeVars(theme: JiMoTheme) {
+  switch (theme) {
+    case JiMoTheme.Platform:
+      return platform;
+    case JiMoTheme.Default:
+    default:
+      return null;
   }
 }
