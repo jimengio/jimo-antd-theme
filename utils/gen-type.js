@@ -5,6 +5,12 @@ const https = require("https");
 const fs = require("fs");
 const readline = require("readline");
 const Readable = require("stream").Readable;
+const {
+  isLessVariables,
+  isLineComment,
+  getInLineComment,
+  getLessVariableName,
+} = require("./fmt");
 
 const antdThemePath =
   "https://raw.githubusercontent.com/ant-design/ant-design/master/components/style/themes/default.less";
@@ -12,10 +18,6 @@ const variablesFilename = "variables.ts";
 const typesPath = path.join(__dirname, "../src/types");
 const variablesFilePath = path.join(typesPath, variablesFilename);
 const typeName = "AntdThemeVariables";
-
-const lessVariableReg = /^@\w+(\w*\-?\w*)+\w+\:/;
-const lineCommentReg = /^\/\//;
-const inLineCommentReg = /\/\/.+/;
 
 const getUrlCtx = url =>
   new Promise((resolve, reject) =>
@@ -34,15 +36,6 @@ const getUrlCtx = url =>
       })
   );
 
-/**
- * Generate variables type
- */
-module.exports = async function GenerateAntdThemeVariablesType() {
-  const content = await getUrlCtx(antdThemePath);
-
-  writeTypeFile(content);
-};
-
 function writeTypeFile(content) {
   const stream = new Readable();
   stream.push(content);
@@ -59,7 +52,7 @@ function writeTypeFile(content) {
     if (isLessVariables(line)) {
       const comment = getInLineComment(line);
       const suffix = comment ? `  ${comment}` : "";
-      typesText += `  "${getStyleName(line)}"?: string;${suffix}\n`;
+      typesText += `  "${getLessVariableName(line)}"?: string;${suffix}\n`;
       typesTot++;
     } else if (isLineComment(line)) {
       typesText += `  ${line}\n`;
@@ -74,24 +67,13 @@ function writeTypeFile(content) {
   });
 }
 
-function isLessVariables(str) {
-  return lessVariableReg.test(str);
-}
+/**
+ * Generate variables type
+ */
+module.exports = async function GenerateAntdThemeVariablesType() {
+  const content = await getUrlCtx(antdThemePath);
 
-function isLineComment(str) {
-  return lineCommentReg.test(str);
-}
-
-function getInLineComment(str) {
-  if (inLineCommentReg.test(str)) {
-    return str.match(inLineCommentReg)[0];
-  } else {
-    return null;
-  }
-}
-
-function getStyleName(strLine) {
-  return strLine.match(lessVariableReg)[0].slice(0, -1);
-}
+  writeTypeFile(content);
+};
 
 process.nextTick(() => require.main.exports());
