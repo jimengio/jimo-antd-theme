@@ -2,7 +2,62 @@
 
 Antd theme for jimengio
 
+[![npm](https://img.shields.io/npm/v/@jimengio/jimo-antd-theme.svg)](https://www.npmjs.com/package/@jimengio/jimo-antd-theme)
+[![GitHub license](https://img.shields.io/github/license/jimengio/jimo-antd-theme)](./LICENSE)
+
+## Theme
+
+Preview: https://jimengio.github.io/jimo-antd-theme/
+
+[Antd variables](https://github.com/ant-design/ant-design/blob/master/components/style/themes/default.less)
+
+1. platform
+2. ...
+
 ## Usage
+
+### Installation
+
+```shell
+yarn add -D @jimengio/jimo-antd-theme
+```
+
+### less
+
+```tsx
+import "antd/dist/antd.less";
+import "@jimengio/jimo-antd-theme/platform.theme.less";
+```
+
+### webpack
+
+```js
+const jimoTheme = require("@jimengio/jimo-antd-theme");
+
+// add rule
+exports.matchLessRule = {
+  test: /\.less$/,
+  use: [
+    {
+      loader: "style-loader",
+    },
+    {
+      loader: "css-loader",
+    },
+    {
+      loader: "less-loader",
+      options: {
+        modifyVars: {
+          ...jimoTheme.platform,
+        },
+        javascriptEnabled: true,
+      },
+    },
+  ],
+};
+```
+
+## Dev
 
 ```
 # install dependencies
