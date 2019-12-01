@@ -15,6 +15,7 @@ yarn-error.log*
 
 tsconfig.json
 tsconfig.*.json
+ava.config.js
 
 .travis.yml
 .prettierrc
