@@ -2,6 +2,7 @@
 
 Antd theme for jimengio
 
+[![Build Status](https://travis-ci.org/jimengio/jimo-antd-theme.svg?branch=master)](https://travis-ci.org/jimengio/jimo-antd-theme)
 [![npm](https://img.shields.io/npm/v/@jimengio/jimo-antd-theme.svg)](https://www.npmjs.com/package/@jimengio/jimo-antd-theme)
 [![GitHub license](https://img.shields.io/github/license/jimengio/jimo-antd-theme)](./LICENSE)
 
@@ -30,6 +31,13 @@ import "@jimengio/jimo-antd-theme/platform.theme.less";
 ```
 
 ### webpack
+
+```tsx
+// Entry file
+
+// import "antd/dist/antd.css";
+import "antd/dist/antd.less";
+```
 
 ```js
 const jimoTheme = require("@jimengio/jimo-antd-theme");
