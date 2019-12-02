@@ -53,9 +53,16 @@ function getLessVariableName(strLine) {
   }
 }
 
+async function mapAsync(array, callbackfn, thisArg) {
+  let result = await Promise.all(array.map(callbackfn, thisArg));
+
+  return result;
+}
+
 module.exports = {
   isLessVariables,
   isLineComment,
   getInLineComment,
   getLessVariableName,
+  mapAsync,
 };

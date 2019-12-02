@@ -5,8 +5,8 @@
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
-    "example": "yarn gen-css && parcel ./example/index.html",
-    "example:build": "yarn gen-css && rm -rf ./dist/ && parcel build ./example/index.html --out-dir dist --public-url ./",
+    "example": "yarn gen-css type && parcel ./example/index.html",
+    "example:build": "yarn gen-css type && rm -rf ./dist/ && parcel build ./example/index.html --out-dir dist --public-url ./",
     "example:deploy": "yarn example:build --no-source-maps && gh-pages -d dist",
     "example:less": "cd example && lessc --js ./index.less ./index.css",
     "build": "rm -rf ./lib/ && tsc -d --project tsconfig.json --outDir ./lib/ && yarn gen-less",
