@@ -5,7 +5,7 @@ import { Radio, Divider } from "antd";
 import AntdComponents from "./components";
 import Variables from "./Variables";
 
-import { JiMoTheme, getThemeCssText } from "./theme";
+import { JiMoTheme, getThemeCssText, DynamicThemeStyleName } from "./theme";
 
 export default function App() {
   const [theme, setTheme] = useState<JiMoTheme>(JiMoTheme.Default);
@@ -14,15 +14,15 @@ export default function App() {
 
   useEffect(() => {
     styleRef.current = document.querySelector<HTMLStyleElement>(
-      `style[jimo-antd-theme=""]`
+      `style[${DynamicThemeStyleName}=""]`
     );
 
     if (!styleRef.current) {
       styleRef.current = document.createElement("style");
+      styleRef.current.setAttribute(DynamicThemeStyleName, "");
       document.head.appendChild(styleRef.current);
     }
 
-    styleRef.current.setAttribute("jimo-antd-theme", "");
     styleRef.current.textContent = getThemeCssText(theme);
   }, [theme]);
 
@@ -45,7 +45,7 @@ export default function App() {
         })}
       </Radio.Group>
       <Divider orientation="left">Preview</Divider>
-      <div style={{ marginTop: 16 }}>
+      <div>
         <AntdComponents />
       </div>
       <Variables theme={theme} />

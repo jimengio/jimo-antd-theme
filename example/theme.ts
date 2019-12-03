@@ -2,6 +2,8 @@ import platformCss from "./theme/platform";
 
 import { platform } from "../lib";
 
+export const DynamicThemeStyleName = "jimo-antd-theme";
+
 export enum JiMoTheme {
   Default = "default",
   Platform = "platform",
