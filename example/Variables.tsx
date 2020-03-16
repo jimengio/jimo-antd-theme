@@ -14,6 +14,7 @@ const Variables: FC<{ theme: JiMoTheme }> = props => {
     <>
       <Button
         style={styleBtn}
+        disabled={disabledBtn}
         type={"link"}
         onClick={() => setShowVisible(true)}
       >
