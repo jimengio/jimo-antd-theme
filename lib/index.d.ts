@@ -1,2 +1,3 @@
 import platform from "./theme/platform";
-export { platform };
+import q806 from "./theme/q806";
+export { platform, q806 };

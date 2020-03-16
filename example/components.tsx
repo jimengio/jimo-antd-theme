@@ -96,10 +96,10 @@ const AntdComponents: FC = () => {
           <TimePicker />
         </PreCard>
       </Col>
-      <PreCard title={"InputNumber"}>
-        <InputNumber />
-      </PreCard>
       <Col xs={24} md={12} lg={8}>
+        <PreCard title={"InputNumber"}>
+          <InputNumber />
+        </PreCard>
         <PreCard title={"Input"}>
           <Input />
           <Input.TextArea />
@@ -143,6 +143,7 @@ const AntdComponents: FC = () => {
         <PreCard title={"Tag"}>
           <Tag>Tag 1</Tag>
           <Tag closable>Tag 2</Tag>
+          <Tag color="red">Tag 3</Tag>
         </PreCard>
       </Col>
       <Col xs={24} md={12} lg={8}>

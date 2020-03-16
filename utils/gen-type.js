@@ -12,17 +12,33 @@ const {
   getLessVariableName,
 } = require("./fmt");
 
+// antd v3.26.13
+const antdThemePathV3 =
+  "https://raw.githubusercontent.com/ant-design/ant-design/3.26.13/components/style/themes/default.less";
+
+// antd latest v4.x
 const antdThemePath =
   "https://raw.githubusercontent.com/ant-design/ant-design/master/components/style/themes/default.less";
-const variablesFilename = "variables.ts";
-const typesPath = path.join(__dirname, "../src/types");
-const variablesFilePath = path.join(typesPath, variablesFilename);
-const typeName = "AntdThemeVariables";
+const antdDarkThemePath =
+  "https://raw.githubusercontent.com/ant-design/ant-design/master/components/style/themes/dark.less";
 
-const getUrlCtx = url =>
-  new Promise((resolve, reject) =>
+const variablesFilename_v3 = "variables_v3.ts";
+const variablesFilename = "variables.ts";
+const variablesFilename_dark = "variables_dark.ts";
+const typesPath = path.join(__dirname, "../src/types");
+const variablesFilePath_v3 = path.join(typesPath, variablesFilename_v3);
+const variablesFilePath = path.join(typesPath, variablesFilename);
+const variablesFilePath_dark = path.join(typesPath, variablesFilename_dark);
+const typeName_v3 = "AntdThemeVariablesV3";
+const typeName = "AntdThemeVariables";
+const typeName_dark = "AntdDarkThemeVariables";
+
+const getUrlCtx = url => {
+  const options = new URL(url);
+
+  return new Promise((resolve, reject) =>
     https
-      .get(url, res => {
+      .get(options, res => {
         let html = "";
         res.on("data", data => {
           html += data;
@@ -35,8 +51,9 @@ const getUrlCtx = url =>
         reject(err);
       })
   );
+};
 
-function writeTypeFile(content) {
+function writeTypeFile(content, filePath, typeName) {
   const stream = new Readable();
   stream.push(content);
   stream.push(null);
@@ -62,8 +79,8 @@ function writeTypeFile(content) {
   rl.on("close", () => {
     typesText += `}`;
 
-    fs.writeFileSync(variablesFilePath, typesText);
-    console.info(`Generated ${typesTot} variables in ${variablesFilePath}.`);
+    fs.writeFileSync(filePath, typesText);
+    console.info(`Generated ${typesTot} variables in ${filePath}.`);
   });
 }
 
@@ -71,9 +88,18 @@ function writeTypeFile(content) {
  * Generate variables type
  */
 module.exports = async function GenerateAntdThemeVariablesType() {
-  const content = await getUrlCtx(antdThemePath);
+  try {
+    const content_v3 = await getUrlCtx(antdThemePathV3);
+    writeTypeFile(content_v3, variablesFilePath_v3, typeName_v3);
 
-  writeTypeFile(content);
+    const content = await getUrlCtx(antdThemePath);
+    writeTypeFile(content, variablesFilePath, typeName);
+
+    const darkContent = await getUrlCtx(antdDarkThemePath);
+    writeTypeFile(darkContent, variablesFilePath_dark, typeName_dark);
+  } catch (err) {
+    console.error("Generate variables types error.", err);
+  }
 };
 
 process.nextTick(() => require.main.exports());

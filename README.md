@@ -13,7 +13,8 @@ Preview: https://jimengio.github.io/jimo-antd-theme/
 [Antd variables](https://github.com/ant-design/ant-design/blob/master/components/style/themes/default.less)
 
 1. platform
-2. ...
+2. q806
+3. ...
 
 ## Usage
 
