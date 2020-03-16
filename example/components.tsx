@@ -143,6 +143,7 @@ const AntdComponents: FC = () => {
         <PreCard title={"Tag"}>
           <Tag>Tag 1</Tag>
           <Tag closable>Tag 2</Tag>
+          <Tag color="red">Tag 3</Tag>
         </PreCard>
       </Col>
       <Col xs={24} md={12} lg={8}>
