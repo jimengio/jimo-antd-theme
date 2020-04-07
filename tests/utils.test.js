@@ -3,6 +3,7 @@ import test from "ava";
 import {
   isLessVariables,
   isLineComment,
+  isStringContainV3,
   getInLineComment,
   getLessVariableName,
 } from "../utils/fmt";
@@ -91,4 +92,11 @@ test("getLessVariableName", t => {
   errLessLines.map(line => {
     t.is(getLessVariableName(line), null);
   });
+});
+
+test("isStringContainV3", t => {
+  t.is(isStringContainV3("platform_v3.ts"), true);
+  t.is(isStringContainV3("platform.ts"), false);
+  t.is(isStringContainV3(""), false);
+  t.is(isStringContainV3(undefined), false);
 });
