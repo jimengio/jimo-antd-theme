@@ -3,17 +3,23 @@
 const path = require("path");
 const fs = require("fs");
 const less = require("less");
-const { mapAsync } = require("./fmt");
+const { mapAsync, isStringContainV3 } = require("./fmt");
 
 const libPath = path.join(__dirname, "../lib");
 const examplePath = path.join(__dirname, "../example");
 const exampleThemePath = path.join(examplePath, "theme");
 const antdPath = path.join(__dirname, "../node_modules/antd");
+const antdv3Path = path.join(__dirname, "../node_modules/antdv3");
 const antdLessPath = path.join(antdPath, "dist/antd.less");
+const antdv3LessPath = path.join(antdv3Path, "dist/antd.less");
 
 function themeLessTemplate(filePath) {
+  const currentAntdLessPath = isStringContainV3(filePath)
+    ? antdv3LessPath
+    : antdLessPath;
+
   return `
-@import "${antdLessPath}";
+@import "${currentAntdLessPath}";
 @import "${filePath}";
 `;
 }
@@ -35,12 +41,14 @@ function fmtNameLessToTs(lessName) {
 }
 
 async function parseAntdLessToCss(filename, compress) {
+  const currentAntdPath = isStringContainV3(filename) ? antdv3Path : antdPath;
+
   const output = await less.render(
     themeLessTemplate(path.join(libPath, filename)),
     {
       javascriptEnabled: true,
       compress: compress || false,
-      paths: [antdPath, libPath],
+      paths: [currentAntdPath, libPath],
     }
   );
 
