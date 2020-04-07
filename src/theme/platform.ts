@@ -26,6 +26,8 @@ const platform: AntdThemeVariables = {
   "@table-padding-vertical": "9px",
   // Tabs
   "@tabs-horizontal-margin": "0 16px 0 0",
+  // Form
+  "@label-color": "#6F6F6F",
 };
 
 export default platform;
