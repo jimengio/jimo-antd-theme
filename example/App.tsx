@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import { css } from "emotion";
 
 import { Radio, Divider } from "antd";
@@ -12,18 +12,25 @@ export default function App() {
 
   const styleRef = useRef<HTMLStyleElement | null>();
 
+  const changeCssContent = useCallback(
+    theme => {
+      styleRef.current = document.querySelector<HTMLStyleElement>(
+        `style[${DynamicThemeStyleName}=""]`
+      );
+
+      if (!styleRef.current) {
+        styleRef.current = document.createElement("style");
+        styleRef.current.setAttribute(DynamicThemeStyleName, "");
+        document.head.appendChild(styleRef.current);
+      }
+
+      styleRef.current.textContent = getThemeCssText(theme);
+    },
+    [styleRef]
+  );
+
   useEffect(() => {
-    styleRef.current = document.querySelector<HTMLStyleElement>(
-      `style[${DynamicThemeStyleName}=""]`
-    );
-
-    if (!styleRef.current) {
-      styleRef.current = document.createElement("style");
-      styleRef.current.setAttribute(DynamicThemeStyleName, "");
-      document.head.appendChild(styleRef.current);
-    }
-
-    styleRef.current.textContent = getThemeCssText(theme);
+    changeCssContent(theme);
   }, [theme]);
 
   return (

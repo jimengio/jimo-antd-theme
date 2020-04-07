@@ -1,6 +1,6 @@
 {
   "name": "@jimengio/jimo-antd-theme",
-  "version": "0.1.0",
+  "version": "0.2.0-alpha6",
   "description": "Antd theme for jimengio",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -9,7 +9,7 @@
     "example:build": "yarn gen-css type && rm -rf ./dist/ && parcel build ./example/index.html --out-dir dist --public-url ./",
     "example:deploy": "yarn example:build --no-source-maps && gh-pages -d dist",
     "example:less": "cd example && lessc --js ./index.less ./index.css",
-    "build": "rm -rf ./lib/ && tsc -d --project tsconfig.json --outDir ./lib/ && yarn gen-less",
+    "build": "rm -rf ./lib/ && tsc -d --project tsconfig.json --outDir ./lib/ && yarn gen-less && yarn gen-css build",
     "test": "yarn build && ava",
     "gen-less": "node ./utils/gen-less.js",
     "gen-type": "node ./utils/gen-type.js",
@@ -23,7 +23,8 @@
   "keywords": [
     "antd-theme",
     "antd",
-    "less"
+    "less",
+    "css"
   ],
   "author": "JimengIo",
   "license": "MIT",
@@ -38,6 +39,7 @@
     "antd": "^4.0.3",
     "ava": "^2.4.0",
     "babel-plugin-import": "^1.13.0",
+    "dayjs": "^1.8.23",
     "emotion": "^10.0.23",
     "gh-pages": "^2.1.1",
     "less": "^3.10.3",

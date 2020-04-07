@@ -26,6 +26,10 @@ function fmtNameLessToCss(lessName) {
   return lessName.replace(/.theme.less$/, ".css");
 }
 
+function fmtNameLessToMinCss(lessName) {
+  return lessName.replace(/.theme.less$/, ".min.css");
+}
+
 function fmtNameLessToTs(lessName) {
   return lessName.replace(/.theme.less$/, ".ts");
 }
@@ -43,21 +47,23 @@ async function parseAntdLessToCss(filename, compress) {
   return output && output.css;
 }
 
-const argvsMap = ["compress", "type"];
+const argvsMap = ["compress", "type", "build"];
 
 /**
- * Generate Css Files
+ * [TODO] Generate Css Files
  *
  * less -> css
  *
  * argv:
  *   `compress`: less compress
  *   `type`: generated css or ts
+ *   `build`: generated min css in lib
  */
 module.exports = async function GenerateCssFiles() {
   const argvs = process.argv.slice(2);
   const type = argvs && argvs.includes(argvsMap[1]);
-  const compress = (argvs && argvs.includes(argvsMap[0])) || type;
+  const build = argvs && argvs.includes(argvsMap[2]);
+  const compress = (argvs && argvs.includes(argvsMap[0])) || type || build;
 
   const files = fs.readdirSync(libPath);
 
@@ -71,10 +77,12 @@ module.exports = async function GenerateCssFiles() {
     throw new Error(`No less files in '${libPath}'.`);
   }
 
-  const themeDirExistsAlready = await fs.existsSync(exampleThemePath);
+  const outputPath = build ? libPath : exampleThemePath;
+
+  const themeDirExistsAlready = await fs.existsSync(outputPath);
   if (!themeDirExistsAlready) {
-    fs.mkdirSync(exampleThemePath);
-    console.info(`No example folder. Generated ${exampleThemePath}`);
+    fs.mkdirSync(outputPath);
+    console.info(`No folder. Generated ${outputPath}`);
   }
 
   mapAsync(lessFiles, async filename => {
@@ -89,7 +97,11 @@ module.exports = async function GenerateCssFiles() {
       fs.writeFileSync(tsPath, `export default \`${css}\`;`);
       console.info(`Generated ${tsPath}`);
     } else {
-      const cssPath = path.join(exampleThemePath, fmtNameLessToCss(filename));
+      const cssFilename = build
+        ? fmtNameLessToMinCss(filename)
+        : fmtNameLessToCss(filename);
+
+      const cssPath = path.join(outputPath, cssFilename);
       fs.writeFileSync(cssPath, css);
       console.info(`Generated ${cssPath}`);
     }

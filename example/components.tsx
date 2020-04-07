@@ -45,13 +45,13 @@ const AntdComponents: FC = () => {
           <Button type="danger">Danger</Button>
           <Button type="link">Link</Button>
           <br />
-          <Button type="primary" icon="download" />
-          <Button type="primary" shape="circle" icon="download" />
-          <Button type="primary" shape="round" icon="download" />
-          <Button type="primary" shape="round" icon="download">
+          <Button type="primary" icon="d" />
+          <Button type="primary" shape="circle" icon="d" />
+          <Button type="primary" shape="round" icon="d" />
+          <Button type="primary" shape="round" icon="d">
             Download
           </Button>
-          <Button type="primary" icon="download">
+          <Button type="primary" icon="d">
             Download
           </Button>
           <br />

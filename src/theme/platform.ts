@@ -6,6 +6,8 @@ import AntdThemeVariables from "../types/variables";
  */
 const platform: AntdThemeVariables = {
   "@font-size-base": "14px",
+  // text
+  "@text-color": "#323232",
   // colors
   "@primary-color": "#3674FF",
   "@success-color": "#4DAD1E",
@@ -14,13 +16,18 @@ const platform: AntdThemeVariables = {
   "@border-color-base": "#E8E8E8",
   "@border-radius-base": "2px",
   "@box-shadow-base": "0 2px 8px rgba(0, 0, 0, 0.1)",
+  "@primary-5": "@primary-color",
+  // tag
   "@tag-font-size": "@font-size-base",
-  "@progress-radius": "2px",
+  // progress
+  "@progress-radius": "0",
   // Table
   "@table-header-bg": "#F2F2F2",
-  "@table-padding-vertical": "12px",
+  "@table-padding-vertical": "9px",
   // Tabs
   "@tabs-horizontal-margin": "0 16px 0 0",
+  // Form
+  "@label-color": "#6F6F6F",
 };
 
 export default platform;
