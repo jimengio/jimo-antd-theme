@@ -24,11 +24,20 @@ Preview: https://jimengio.github.io/jimo-antd-theme/
 yarn add -D @jimengio/jimo-antd-theme
 ```
 
+### css
+
+不是很推荐
+
+```tsx
+// import "antd/dist/antd.min.css";
+import "@jimengio/jimo-antd-theme/lib/platform.min.css";
+```
+
 ### less
 
 ```tsx
 import "antd/dist/antd.less";
-import "@jimengio/jimo-antd-theme/platform.theme.less";
+import "@jimengio/jimo-antd-theme/lib/platform.theme.less";
 ```
 
 ### webpack
