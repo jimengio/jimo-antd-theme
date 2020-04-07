@@ -1,7 +1,7 @@
 import test from "ava";
 import { render } from "less";
 
-import { platform, q806 } from "../lib";
+import { platform, platformV3, q806V3 } from "../lib";
 
 interface LessVars {
   [name: string]: string;
@@ -15,9 +15,17 @@ test("theme platform build", async t => {
   t.true(data != undefined, data.css);
 });
 
-test("theme q806 build", async t => {
+test("theme platform_v3 build", async t => {
   const data = await render("", {
-    modifyVars: q806 as LessVars,
+    modifyVars: platformV3 as LessVars,
+  });
+
+  t.true(data != undefined, data.css);
+});
+
+test("theme q806_v3 build", async t => {
+  const data = await render("", {
+    modifyVars: q806V3 as LessVars,
   });
 
   t.true(data != undefined, data.css);
