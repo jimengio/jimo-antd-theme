@@ -12,9 +12,27 @@ Preview: https://jimengio.github.io/jimo-antd-theme/
 
 [Antd variables](https://github.com/ant-design/ant-design/blob/master/components/style/themes/default.less)
 
-1. platform
-2. q806
+1. platform / platformV3
+2. q806V3
 3. ...
+
+### css
+
+```shell
+lib
+├── platform.min.css
+├── platform_v3.min.css
+├── q806_v3.min.css
+```
+
+### less
+
+```shell
+lib
+├── platform.theme.less
+├── platform_v3.theme.less
+├── q806_v3.theme.less
+```
 
 ## Usage
 
@@ -22,15 +40,6 @@ Preview: https://jimengio.github.io/jimo-antd-theme/
 
 ```shell
 yarn add -D @jimengio/jimo-antd-theme
-```
-
-### css
-
-不是很推荐
-
-```tsx
-// import "antd/dist/antd.min.css";
-import "@jimengio/jimo-antd-theme/lib/platform.min.css";
 ```
 
 ### less
@@ -73,6 +82,15 @@ exports.matchLessRule = {
     },
   ],
 };
+```
+
+### css
+
+不是很推荐，根据具体 `antd` 版本打包，会有兼容性问题
+
+```tsx
+// import "antd/dist/antd.min.css";
+import "@jimengio/jimo-antd-theme/lib/platform.min.css";
 ```
 
 ## Dev

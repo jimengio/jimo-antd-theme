@@ -30,6 +30,18 @@ function isLineComment(str) {
 }
 
 /**
+ * `**_v3.**`
+ * @param {string} str
+ */
+function isStringContainV3(str) {
+  if (str) {
+    return /_v3/i.test(str);
+  } else {
+    return false;
+  }
+}
+
+/**
  * Get the line comment
  * @param {string} str
  */
@@ -62,6 +74,7 @@ async function mapAsync(array, callbackfn, thisArg) {
 module.exports = {
   isLessVariables,
   isLineComment,
+  isStringContainV3,
   getInLineComment,
   getLessVariableName,
   mapAsync,

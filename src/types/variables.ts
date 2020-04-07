@@ -66,9 +66,20 @@ export default interface AntdThemeVariables {
   "@padding-md"?: string;  // small containers and buttons
   "@padding-sm"?: string;  // Form controls and items
   "@padding-xs"?: string;  // small items
+  "@padding-xss"?: string;  // more small
   // vertical padding for all form controls
   "@control-padding-horizontal"?: string;
   "@control-padding-horizontal-sm"?: string;
+  // vertical margins
+  "@margin-lg"?: string;  // containers
+  "@margin-md"?: string;  // small containers and buttons
+  "@margin-sm"?: string;  // Form controls and items
+  "@margin-xs"?: string;  // small items
+  "@margin-xss"?: string;  // more small
+  // height rules
+  "@height-base"?: string;
+  "@height-lg"?: string;
+  "@height-sm"?: string;
   // The background colors for active and hover states for things like
   // list items or table cells.
   "@item-active-bg"?: string;
@@ -81,6 +92,8 @@ export default interface AntdThemeVariables {
   "@link-active-color"?: string;
   "@link-decoration"?: string;
   "@link-hover-decoration"?: string;
+  "@link-focus-decoration"?: string;
+  "@link-focus-outline"?: string;
   // Animation
   "@ease-base-out"?: string;
   "@ease-base-in"?: string;
@@ -159,6 +172,9 @@ export default interface AntdThemeVariables {
   "@btn-square-size"?: string;
   "@btn-square-size-lg"?: string;
   "@btn-square-size-sm"?: string;
+  "@btn-square-only-icon-size"?: string;
+  "@btn-square-only-icon-size-sm"?: string;
+  "@btn-square-only-icon-size-lg"?: string;
   "@btn-group-border"?: string;
   "@btn-link-ghost-color"?: string;
   // Checkbox
@@ -169,6 +185,10 @@ export default interface AntdThemeVariables {
   "@checkbox-border-width"?: string;
   // Descriptions
   "@descriptions-bg"?: string;
+  "@descriptions-title-margin-bottom"?: string;
+  "@descriptions-default-padding"?: string;
+  "@descriptions-middle-padding"?: string;
+  "@descriptions-small-padding"?: string;
   // Dropdown
   "@dropdown-selected-color"?: string;
   "@dropdown-menu-submenu-disabled-bg"?: string;
@@ -180,6 +200,8 @@ export default interface AntdThemeVariables {
   "@radio-dot-disabled-color"?: string;
   // solid text-color
   "@radtio-solid-checked-color"?: string;
+  // Keep typo compatible
+  "@radio-solid-checked-color"?: string;
   // Radio buttons
   "@radio-button-bg"?: string;
   "@radio-button-checked-bg"?: string;
@@ -271,6 +293,7 @@ export default interface AntdThemeVariables {
   "@form-vertical-label-padding"?: string;
   "@form-vertical-label-margin"?: string;
   "@form-item-label-font-size"?: string;
+  "@form-item-label-height"?: string;
   "@form-item-label-colon-margin-right"?: string;
   "@form-item-label-colon-margin-left"?: string;
   "@form-error-input-bg"?: string;
@@ -315,10 +338,15 @@ export default interface AntdThemeVariables {
   "@select-dropdown-vertical-padding"?: string;
   "@select-dropdown-font-size"?: string;
   "@select-dropdown-line-height"?: string;
+  "@select-dropdown-height"?: string;
   "@select-background"?: string;
   "@select-clear-background"?: string;
   "@select-selection-item-bg"?: string;
   "@select-selection-item-border-color"?: string;
+  "@select-single-item-height-lg"?: string;
+  "@select-multiple-item-height"?: string;  // Normal 24px
+  "@select-multiple-item-height-lg"?: string;
+  "@select-multiple-item-spacing-half"?: string;
   // Cascader
   // ---
   "@cascader-bg"?: string;
@@ -357,6 +385,7 @@ export default interface AntdThemeVariables {
   "@popover-color"?: string;
   // Popover maximum width
   "@popover-min-width"?: string;
+  "@popover-min-height"?: string;
   // Popover arrow width
   "@popover-arrow-width"?: string;
   // Popover arrow color
@@ -366,11 +395,14 @@ export default interface AntdThemeVariables {
   "@popover-arrow-outer-color"?: string;
   // Popover distance with trigger
   "@popover-distance"?: string;
+  "@popover-padding-horizontal"?: string;
   // Modal
   // --
   "@modal-body-padding"?: string;
   "@modal-header-bg"?: string;
+  "@modal-header-padding"?: string;
   "@modal-header-border-color-split"?: string;
+  "@modal-header-close-size"?: string;
   "@modal-content-bg"?: string;
   "@modal-heading-color"?: string;
   "@modal-footer-bg"?: string;
@@ -378,6 +410,7 @@ export default interface AntdThemeVariables {
   "@modal-footer-padding-vertical"?: string;
   "@modal-footer-padding-horizontal"?: string;
   "@modal-mask-bg"?: string;
+  "@modal-confirm-body-padding"?: string;
   // Progress
   // --
   "@progress-default-color"?: string;
@@ -389,6 +422,7 @@ export default interface AntdThemeVariables {
   // ---
   "@menu-inline-toplevel-item-height"?: string;
   "@menu-item-height"?: string;
+  "@menu-item-group-height"?: string;
   "@menu-collapsed-width"?: string;
   "@menu-bg"?: string;
   "@menu-popup-bg"?: string;
@@ -432,6 +466,10 @@ export default interface AntdThemeVariables {
   "@table-expanded-row-bg"?: string;
   "@table-padding-vertical"?: string;
   "@table-padding-horizontal"?: string;
+  "@table-padding-vertical-md"?: string;
+  "@table-padding-horizontal-md"?: string;
+  "@table-padding-vertical-sm"?: string;
+  "@table-padding-horizontal-sm"?: string;
   "@table-border-radius-base"?: string;
   "@table-footer-bg"?: string;
   "@table-footer-color"?: string;
@@ -459,6 +497,7 @@ export default interface AntdThemeVariables {
   "@picker-border-color"?: string;
   "@picker-date-hover-range-border-color"?: string;
   "@picker-date-hover-range-color"?: string;
+  "@picker-time-panel-cell-height"?: string;
   // Calendar
   // ---
   "@calendar-bg"?: string;
@@ -488,14 +527,22 @@ export default interface AntdThemeVariables {
   // ---
   "@card-head-color"?: string;
   "@card-head-background"?: string;
+  "@card-head-font-size"?: string;
+  "@card-head-font-size-sm"?: string;
   "@card-head-padding"?: string;
+  "@card-head-padding-sm"?: string;
+  "@card-head-height"?: string;
+  "@card-head-height-sm"?: string;
   "@card-inner-head-padding"?: string;
   "@card-padding-base"?: string;
+  "@card-padding-base-sm"?: string;
   "@card-actions-background"?: string;
+  "@card-actions-li-margin"?: string;
   "@card-skeleton-bg"?: string;
   "@card-background"?: string;
   "@card-shadow"?: string;
   "@card-radius"?: string;
+  "@card-head-tabs-margin-bottom"?: string;
   // Comment
   // ---
   "@comment-bg"?: string;
@@ -507,11 +554,16 @@ export default interface AntdThemeVariables {
   "@comment-author-time-color"?: string;
   "@comment-action-color"?: string;
   "@comment-action-hover-color"?: string;
+  "@comment-actions-margin-bottom"?: string;
+  "@comment-actions-margin-top"?: string;
+  "@comment-content-detail-p-margin-bottom"?: string;
   // Tabs
   // ---
   "@tabs-card-head-background"?: string;
   "@tabs-card-height"?: string;
   "@tabs-card-active-color"?: string;
+  "@tabs-card-horizontal-padding"?: string;
+  "@tabs-card-horizontal-padding-sm"?: string;
   "@tabs-title-font-size"?: string;
   "@tabs-title-font-size-lg"?: string;
   "@tabs-title-font-size-sm"?: string;
@@ -569,11 +621,13 @@ export default interface AntdThemeVariables {
   "@pagination-item-disabled-color-active"?: string;
   "@pagination-item-disabled-bg-active"?: string;
   "@pagination-item-input-bg"?: string;
+  "@pagination-mini-options-size-changer-top"?: string;
   // PageHeader
   // ---
   "@page-header-padding"?: string;
   "@page-header-padding-vertical"?: string;
   "@page-header-padding-breadcrumb"?: string;
+  "@page-header-content-padding-vertical"?: string;
   "@page-header-back-color"?: string;
   "@page-header-ghost-bg"?: string;
   // Breadcrumb
@@ -625,12 +679,17 @@ export default interface AntdThemeVariables {
   // ---
   "@skeleton-color"?: string;
   "@skeleton-to-color"?: string;
+  "@skeleton-paragraph-margin-top"?: string;
+  "@skeleton-paragraph-li-margin-top"?: string;
   // Transfer
   // ---
   "@transfer-header-height"?: string;
+  "@transfer-item-height"?: string;
   "@transfer-disabled-bg"?: string;
   "@transfer-list-height"?: string;
   "@transfer-item-hover-bg"?: string;
+  "@transfer-item-padding-vertical"?: string;
+  "@transfer-list-search-icon-top"?: string;
   // Message
   // ---
   "@message-notice-content-padding"?: string;
@@ -656,16 +715,21 @@ export default interface AntdThemeVariables {
   "@alert-text-color"?: string;
   "@alert-close-color"?: string;
   "@alert-close-hover-color"?: string;
+  "@alert-no-icon-padding-vertical"?: string;
+  "@alert-with-description-no-icon-padding-vertical"?: string;
   // List
   // ---
   "@list-header-background"?: string;
   "@list-footer-background"?: string;
   "@list-empty-text-padding"?: string;
   "@list-item-padding"?: string;
+  "@list-item-padding-sm"?: string;
+  "@list-item-padding-lg"?: string;
   "@list-item-meta-margin-bottom"?: string;
   "@list-item-meta-avatar-margin-right"?: string;
   "@list-item-meta-title-margin-bottom"?: string;
   "@list-customize-card-bg"?: string;
+  "@list-item-meta-description-font-size"?: string;
   // Statistic
   // ---
   "@statistic-title-font-size"?: string;
@@ -679,6 +743,7 @@ export default interface AntdThemeVariables {
   "@drawer-bg"?: string;
   "@drawer-footer-padding-vertical"?: string;
   "@drawer-footer-padding-horizontal"?: string;
+  "@drawer-header-close-size"?: string;
   // Timeline
   // ---
   "@timeline-width"?: string;
@@ -700,6 +765,21 @@ export default interface AntdThemeVariables {
   "@process-tail-color"?: string;
   "@steps-nav-arrow-color"?: string;
   "@steps-background"?: string;
+  "@steps-icon-size"?: string;
+  "@steps-icon-custom-size"?: string;
+  "@steps-icon-custom-top"?: string;
+  "@steps-icon-custom-font-size"?: string;
+  "@steps-icon-top"?: string;
+  "@steps-icon-font-size"?: string;
+  "@steps-icon-margin"?: string;
+  "@steps-title-line-height"?: string;
+  "@steps-small-icon-size"?: string;
+  "@steps-small-icon-margin"?: string;
+  "@steps-dot-size"?: string;
+  "@steps-dot-top"?: string;
+  "@steps-current-dot-size"?: string;
+  "@steps-desciption-max-width"?: string;
+  "@steps-nav-content-max-width"?: string;
   // Notification
   // ---
   "@notification-bg"?: string;
