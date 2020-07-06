@@ -13,7 +13,7 @@ Preview: https://jimengio.github.io/jimo-antd-theme/
 [Antd variables](https://github.com/ant-design/ant-design/blob/master/components/style/themes/default.less)
 
 1. platform / platformV3
-2. q806V3
+2. q806V3 / q806HCV3
 3. ...
 
 ### css
@@ -22,6 +22,7 @@ Preview: https://jimengio.github.io/jimo-antd-theme/
 lib
 ├── platform.min.css
 ├── platform_v3.min.css
+├── q806_hc_v3.min.css
 ├── q806_v3.min.css
 ```
 
@@ -30,6 +31,7 @@ lib
 ```shell
 lib
 ├── platform.theme.less
+├── platform_hc_v3.theme.less
 ├── platform_v3.theme.less
 ├── q806_v3.theme.less
 ```
