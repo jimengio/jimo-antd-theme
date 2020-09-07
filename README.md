@@ -22,6 +22,8 @@ Preview: https://jimengio.github.io/jimo-antd-theme/
 lib
 ├── platform.min.css
 ├── platform_v3.min.css
+├── platform_hc.min.css
+├── platform_hc_v3.min.css
 ├── q806_hc_v3.min.css
 ├── q806_v3.min.css
 ```
@@ -31,9 +33,11 @@ lib
 ```shell
 lib
 ├── platform.theme.less
-├── platform_hc_v3.theme.less
 ├── platform_v3.theme.less
+├── platform_hc.theme.less
+├── platform_hc_v3.theme.less
 ├── q806_v3.theme.less
+├── q806_hc_v3.theme.less
 ```
 
 ## Usage

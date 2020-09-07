@@ -1,6 +1,6 @@
 {
   "name": "@jimengio/jimo-antd-theme",
-  "version": "0.2.0-alpha8",
+  "version": "0.2.0-alpha9",
   "description": "Antd theme for jimengio",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
