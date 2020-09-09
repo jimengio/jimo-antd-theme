@@ -173,14 +173,14 @@ export default interface AntdDarkThemeVariables {
     "@btn-default-bg"?: string;
     "@btn-default-ghost-color"?: string;
     "@btn-default-ghost-border"?: string;
-    "@btn-link-ghost-color"?: string;
+    "@btn-text-hover-bg"?: string;
     "@checkbox-check-bg"?: string;
     "@descriptions-bg"?: string;
+    "@divider-color"?: string;
     "@modal-header-bg"?: string;
     "@modal-header-border-color-split"?: string;
     "@modal-content-bg"?: string;
     "@modal-footer-border-color-split"?: string;
-    "@radtio-solid-checked-color"?: string;
     "@radio-solid-checked-color"?: string;
     "@radio-dot-disabled-color"?: string;
     "@radio-disabled-button-checked-bg"?: string;
@@ -191,7 +191,6 @@ export default interface AntdDarkThemeVariables {
     "@input-bg"?: string;
     "@input-placeholder-color"?: string;
     "@input-icon-color"?: string;
-    "@input-number-handler-bg"?: string;
     "@input-number-handler-active-bg"?: string;
     "@input-icon-hover-color"?: string;
     "@select-background"?: string;
@@ -199,6 +198,9 @@ export default interface AntdDarkThemeVariables {
     "@select-clear-background"?: string;
     "@select-selection-item-bg"?: string;
     "@select-selection-item-border-color"?: string;
+    "@select-multiple-disabled-background"?: string;
+    "@select-multiple-item-disabled-color"?: string;
+    "@select-multiple-item-disabled-border-color"?: string;
     "@cascader-bg"?: string;
     "@cascader-menu-bg"?: string;
     "@cascader-menu-border-color-split"?: string;
