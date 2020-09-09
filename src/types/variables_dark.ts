@@ -189,13 +189,16 @@ export default interface AntdDarkThemeVariables {
   "@btn-default-bg"?: string;
   "@btn-default-ghost-color"?: string;
   "@btn-default-ghost-border"?: string;
-  "@btn-link-ghost-color"?: string;
+  "@btn-text-hover-bg"?: string;
   // Checkbox
   // ---
   "@checkbox-check-bg"?: string;
   // Descriptions
   // ---
   "@descriptions-bg"?: string;
+  // Divider
+  // ---
+  "@divider-color"?: string;
   // Modal
   // ---
   "@modal-header-bg"?: string;
@@ -204,8 +207,6 @@ export default interface AntdDarkThemeVariables {
   "@modal-footer-border-color-split"?: string;
   // Radio
   // ---
-  "@radtio-solid-checked-color"?: string;
-  // Keep typo compatible
   "@radio-solid-checked-color"?: string;
   "@radio-dot-disabled-color"?: string;
   // Radio buttons
@@ -222,7 +223,6 @@ export default interface AntdDarkThemeVariables {
   "@input-bg"?: string;
   "@input-placeholder-color"?: string;
   "@input-icon-color"?: string;
-  "@input-number-handler-bg"?: string;
   "@input-number-handler-active-bg"?: string;
   "@input-icon-hover-color"?: string;
   // Select
@@ -232,6 +232,9 @@ export default interface AntdDarkThemeVariables {
   "@select-clear-background"?: string;
   "@select-selection-item-bg"?: string;
   "@select-selection-item-border-color"?: string;
+  "@select-multiple-disabled-background"?: string;
+  "@select-multiple-item-disabled-color"?: string;
+  "@select-multiple-item-disabled-border-color"?: string;
   // Cascader
   // ---
   "@cascader-bg"?: string;
