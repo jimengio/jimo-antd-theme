@@ -18,7 +18,7 @@ module.exports = function GenerateLessFile() {
     throw new Error(`No files in '${themePath}'.`);
   }
 
-  files.filter(isJsFile).map(filename => {
+  files.filter(isJsFile).map((filename) => {
     const obj = require(path.join(themePath, filename)).default;
 
     if (!obj) {
@@ -27,7 +27,7 @@ module.exports = function GenerateLessFile() {
 
     let content = lessFileForeword;
 
-    Object.keys(obj).map(k => (content += `${k}: ${obj[k]};\n`));
+    Object.keys(obj).map((k) => (content += `${k}: ${obj[k]};\n`));
 
     const lessFile = path.join(libPath, fmtNameJs2Less(filename));
     fs.writeFileSync(lessFile, content);

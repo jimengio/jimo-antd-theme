@@ -93,7 +93,7 @@ module.exports = async function GenerateCssFiles() {
     console.info(`No folder. Generated ${outputPath}`);
   }
 
-  mapAsync(lessFiles, async filename => {
+  mapAsync(lessFiles, async (filename) => {
     const css = await parseAntdLessToCss(filename, compress);
     if (!css) {
       console.error(`Parse ${filename} as null.`, output);
