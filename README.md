@@ -110,6 +110,25 @@ yarn example
 
 # build package
 yarn build
+
+# sync less type (src)
+yarn gen-type
+
+# generate less files (lib)
+yarn gen-less
+
+# generate css files (example/lib)
+yarn gen-css [compress, type, build]
+
+# generate css file (for example)
+yarn gen-css
+# generate compressed css file (for example)
+yarn gen-css compress
+# generate typescript css string file (for example)
+yarn gen-css type
+# generate compressed css file (for lib)
+yarn gen-css build
+
 ```
 
 ## License
