@@ -113,6 +113,8 @@ yarn build
 
 # sync less type (src)
 yarn gen-type
+# generated from local files
+yarn gen-type local
 
 # generate less files (lib)
 yarn gen-less
