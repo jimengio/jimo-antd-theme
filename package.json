@@ -26,6 +26,10 @@
     "less",
     "css"
   ],
+  "resolutions": {
+    "browserslist": "4.14.2",
+    "caniuse-lite": "1.0.30001129"
+  },
   "author": "JimengIo",
   "license": "MIT",
   "dependencies": {},
